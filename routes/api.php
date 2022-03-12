@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\EmployeePositionController;
+use App\Http\Controllers\OrganizationalStructureController;
+use App\Http\Controllers\PaymentTypeController;
 use App\Http\Controllers\RoleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,8 +25,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::resource('roles', RoleController::class);
-Route::resource('payment-types', 'PaymentTypeController');
-Route::resource('organizational-structures', 'OrganizationalStructureController');
-Route::resource('users', 'UserController');
-Route::resource('employees', 'EmployeeController');
-Route::resource('employee-positions', 'EmployeePositionController');
+Route::resource('payment-types', PaymentTypeController::class);
+Route::resource('organizational-structures', OrganizationalStructureController::class);
+Route::resource('users', UserController::class);
+Route::resource('employees', EmployeeController::class);
+Route::resource('employee-positions', EmployeePositionController::class);
