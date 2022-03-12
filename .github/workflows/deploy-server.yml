@@ -1,0 +1,25 @@
+name: Deploy to server
+on:
+  push:
+    branches: [master]
+
+jobs:
+  job_two:
+    name: Deploy to server
+    runs-on: ubuntu-latest
+    steps:
+    - name: Test api.brainly.uz server
+      uses: appleboy/ssh-action@master
+      with:
+        host: 176.99.11.80
+        username: root
+        key: ${{ secrets.PATRON_SECRET }}
+        port: 22
+        script: |
+          cd /var/www/www-root/data/www/api.brainly.uz/
+          git pull
+          composer install
+          php artisan migrate
+          php artisan module:seed User
+          php artisan optimize
+        
