@@ -44,4 +44,15 @@ class Controller extends BaseController
         // json response
         return response()->json(['item' => $item]);
     }
+
+    // destroy
+    public function destroy($id)
+    {
+        $query = $this->model::query();
+        $item = $query->findOrFail($id);
+        $item->delete();
+
+        // json response
+        return response()->json(['success' => true]);
+    }
 }

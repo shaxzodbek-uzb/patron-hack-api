@@ -6,6 +6,7 @@ use App\Http\Controllers\OrganizationalStructureController;
 use App\Http\Controllers\PaymentTypeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\RuleController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
