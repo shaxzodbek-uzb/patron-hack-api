@@ -7,5 +7,5 @@ use App\Models\EmployeePosition;
 class EmployeePositionController extends Controller
 {
     protected $model = EmployeePosition::class;
-    protected $rules = ['name' => 'required'];
+    protected $rules = ['name' => 'required', 'salary' => 'required'];
 }
