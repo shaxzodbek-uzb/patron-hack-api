@@ -32,7 +32,7 @@ class Controller extends BaseController
         $item = $query->create($validData);
 
         // json response
-        return response()->json(['item' => $item]);
+        return response()->json(['item' => $item->load($this->list_attach_relations)]);
     }
     public function update(Request $request, $id)
     {
@@ -43,7 +43,7 @@ class Controller extends BaseController
         $item->update($validData);
 
         // json response
-        return response()->json(['item' => $item]);
+        return response()->json(['item' => $item->load($this->list_attach_relations)]);
     }
 
     // destroy
