@@ -10,4 +10,9 @@ class BusinessProcess extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'payment_detail', 'payment_amount', 'classification_group_id'];
+
+    public function classification_group()
+    {
+        return $this->belongsTo(ClassificationGroup::class);
+    }
 }
