@@ -12,4 +12,5 @@ class ClassificationController extends Controller
         'code' => 'required',
         'classification_group_id' => 'required'
     ];
+    protected $list_attach_relations = ['classification_group'];
 }

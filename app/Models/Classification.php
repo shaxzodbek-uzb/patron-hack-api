@@ -13,4 +13,9 @@ class Classification extends Model
         'code',
         'classification_group_id'
     ];
+
+    public function classification_group()
+    {
+        return $this->belongsTo(ClassificationGroup::class);
+    }
 }

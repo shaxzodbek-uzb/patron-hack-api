@@ -11,13 +11,14 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     protected $model;
+    protected $list_attach_relations = [];
     protected $rules = [];
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function index()
     {
         $query = $this->model::query();
-        $items = $query->get();
+        $items = $query->with($this->list_attach_relations)->get();
 
         // json response
         return response()->json(['items' => $items]);
