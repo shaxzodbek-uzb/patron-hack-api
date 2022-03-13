@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\BusinessProcessController;
+use App\Http\Controllers\ClassificationController;
+use App\Http\Controllers\ClassificationGroupController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EmployeePositionController;
 use App\Http\Controllers\OrganizationalStructureController;
@@ -33,3 +36,7 @@ Route::resource('organizational-structures', OrganizationalStructureController::
 Route::resource('users', UserController::class);
 Route::resource('employees', EmployeeController::class);
 Route::resource('employee-positions', EmployeePositionController::class);
+
+Route::resource('business-processes', BusinessProcessController::class);
+Route::resource('classifications', ClassificationController::class);
+Route::resource('classification-groups', ClassificationGroupController::class);
