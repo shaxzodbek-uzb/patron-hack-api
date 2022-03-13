@@ -18,7 +18,7 @@ class Controller extends BaseController
     public function index()
     {
         $query = $this->model::query();
-        $items = $query->with($this->list_attach_relations)->get();
+        $items = $query->with($this->list_attach_relations)->orderBy('id')->get();
 
         // json response
         return response()->json(['items' => $items]);
