@@ -37,6 +37,7 @@ Route::resource('users', UserController::class);
 Route::resource('employees', EmployeeController::class);
 Route::resource('employee-positions', EmployeePositionController::class);
 
+Route::post('business-processes/complete-classification', [BusinessProcessController::class, 'completeClassification']);
 Route::resource('business-processes', BusinessProcessController::class);
 Route::resource('classifications', ClassificationController::class);
 Route::resource('classification-groups', ClassificationGroupController::class);

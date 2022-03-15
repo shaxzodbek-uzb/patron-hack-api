@@ -45,7 +45,15 @@ class Controller extends BaseController
         // json response
         return response()->json(['item' => $item->load($this->list_attach_relations)]);
     }
+    //show
+    public function show($id)
+    {
+        $query = $this->model::query();
+        $item = $query->findOrFail($id);
 
+        // json response
+        return response()->json(['item' => $item->load($this->list_attach_relations)]);
+    }
     // destroy
     public function destroy($id)
     {
