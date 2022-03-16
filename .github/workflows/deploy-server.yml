@@ -20,6 +20,5 @@ jobs:
           git pull
           composer install
           php artisan migrate
-          php artisan module:seed User
           php artisan optimize
         

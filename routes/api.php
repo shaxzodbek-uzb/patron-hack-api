@@ -41,3 +41,4 @@ Route::post('business-processes/complete-classification', [BusinessProcessContro
 Route::resource('business-processes', BusinessProcessController::class);
 Route::resource('classifications', ClassificationController::class);
 Route::resource('classification-groups', ClassificationGroupController::class);
+Route::resource('payment-transactions', PaymentTransactionController::class);
