@@ -6,6 +6,7 @@ use App\Http\Controllers\ClassificationGroupController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EmployeePositionController;
 use App\Http\Controllers\OrganizationalStructureController;
+use App\Http\Controllers\PaymentTransactionController;
 use App\Http\Controllers\PaymentTypeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\RuleController;
