@@ -15,4 +15,5 @@ class PaymentTransactionController extends Controller
         'date' => 'required',
         'payment_status'  => 'required'
     ];
+    protected $list_attach_relations = ['business_process', 'payment_type'];
 }

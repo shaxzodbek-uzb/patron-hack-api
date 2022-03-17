@@ -33,6 +33,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::resource('roles', RoleController::class);
 Route::resource('rules', RuleController::class);
 Route::resource('payment-types', PaymentTypeController::class);
+Route::get('organizational-structures/tree-view', [OrganizationalStructureController::class, 'treeView']);
 Route::resource('organizational-structures', OrganizationalStructureController::class);
 Route::resource('users', UserController::class);
 Route::resource('employees', EmployeeController::class);
