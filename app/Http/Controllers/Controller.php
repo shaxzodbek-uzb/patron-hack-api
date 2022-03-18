@@ -64,4 +64,12 @@ class Controller extends BaseController
         // json response
         return response()->json(['success' => true]);
     }
+
+    function uploadFile($file)
+    {
+        $new_name = rand() . '.' . $file->getClientOriginalExtension();
+        $file->move(public_path('files'), $new_name);
+        $file_path = 'files/' . $new_name;
+        return $file_path;
+    }
 }

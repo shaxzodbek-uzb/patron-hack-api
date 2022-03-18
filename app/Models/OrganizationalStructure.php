@@ -19,4 +19,16 @@ class OrganizationalStructure extends Model
     {
         return $this->hasMany(OrganizationalStructure::class, 'parent_id');
     }
+
+    // employee_positions
+    public function employee_positions()
+    {
+        return $this->hasMany(EmployeePosition::class);
+    }
+
+    // classification_groups
+    public function classification_groups()
+    {
+        return $this->belongsToMany(ClassificationGroup::class);
+    }
 }

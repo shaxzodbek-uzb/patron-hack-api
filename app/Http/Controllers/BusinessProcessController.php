@@ -59,6 +59,24 @@ class BusinessProcessController extends Controller
         // json response
         return response()->json(['item' => $item->load(['classifications', ...$this->list_attach_relations])]);
     }
+    public function attachFile()
+    {
+        $validData = $this->validate(request(), [
+            'classification_id' => 'required',
+            'business_process_id' => 'required',
+            'file' => 'required|file|max:5120'
+        ]);
+
+        // upload file
+        $file_path = $this->uploadFile($validData['file']);
+
+        $business_process = BusinessProcess::findOrFail($validData['business_process_id']);
+        $business_process->classifications()->updateExistingPivot($validData['classification_id'], [
+            'file' => $file_path,
+        ]);
+
+        return response()->json(['success' => true, 'file_path' => $file_path]);
+    }
 
     public function completeClassification()
     {
@@ -85,5 +103,24 @@ class BusinessProcessController extends Controller
 
 
         return response()->json(['success' => true, 'done' => $done]);
+    }
+
+    public function cancel($business_process_id)
+    {
+        $query = $this->model::query();
+        $item = $query->findOrFail($business_process_id);
+        $item->update(['status' => 'new']);
+
+        // update classifications done to false
+        $classification_ids = $item->classifications()->pluck('classifications.id')->toArray();
+        $item->classifications()->updateExistingPivot($classification_ids, [
+            'done' => false,
+            'time_rate' => 0,
+            'quality_rate' => 0,
+            'file' => null,
+        ]);
+
+        // json response
+        return response()->json(['item' => $item->load(['classifications', ...$this->list_attach_relations])]);
     }
 }

@@ -8,5 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Rule extends Model
 {
     use HasFactory;
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'classification_group_id', 'classifications', 'result'];
+    protected $casts = [
+        'classifications' => 'array',
+    ];
 }

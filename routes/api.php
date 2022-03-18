@@ -31,6 +31,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::resource('roles', RoleController::class);
+Route::get('rules/proper-for-business-process/{business_process_id}', [RuleController::class, 'propersForBusinessProcess']);
 Route::resource('rules', RuleController::class);
 Route::resource('payment-types', PaymentTypeController::class);
 Route::get('organizational-structures/tree-view', [OrganizationalStructureController::class, 'treeView']);
@@ -39,6 +40,8 @@ Route::resource('users', UserController::class);
 Route::resource('employees', EmployeeController::class);
 Route::resource('employee-positions', EmployeePositionController::class);
 
+Route::get('business-processes/{business_process_id}/cancel', [BusinessProcessController::class, 'cancel']);
+Route::post('business-processes/attach-file', [BusinessProcessController::class, 'attachFile']);
 Route::post('business-processes/complete-classification', [BusinessProcessController::class, 'completeClassification']);
 Route::resource('business-processes', BusinessProcessController::class);
 Route::resource('classifications', ClassificationController::class);

@@ -19,6 +19,7 @@ class BusinessProcess extends Model
     public function classifications()
     {
         return $this->belongsToMany(Classification::class)->orderBy('code')->withPivot(
+            'file',
             'date_start',
             'date_finish',
             'done',
