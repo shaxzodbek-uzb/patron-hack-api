@@ -66,10 +66,16 @@ class RuleController extends Controller
             $state = 0;
 
             if ($rate < $classification->low_rate) {
+                $state = -2;
+            }
+            if ($rate >= $classification->low_rate && $rate < $classification->middle_rate) {
                 $state = -1;
             }
-            if ($rate > $classification->high_rate) {
+            if ($rate > $classification->middle_rate && $rate <= $classification->high_rate) {
                 $state = 1;
+            }
+            if ($rate > $classification->high_rate) {
+                $state = 2;
             }
             $classifications_zipped[] = [
                 'id' => $classification->id,
