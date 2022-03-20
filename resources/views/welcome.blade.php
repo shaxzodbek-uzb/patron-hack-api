@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>PatronHack</title>
+    <title>ASUBP</title>
 </head>
 
 <body class="antialiased">
-    PatronHack
+    ASUBP
 </body>
 
 </html>
